@@ -18,14 +18,13 @@ import java.util.List;
 // References:
 // https://stackoverflow.com/questions/68375755/how-to-intercept-logging-messages-with-quarkus-for-testing-purposes
 // https://quarkus.io/guides/writing-extensions#testing-extensions
-public class SessionIdFilterTest {
+public class ipAddressFilterTest {
     private static final String loggerName = "test-logger";
     private static final Logger LOG = Logger.getLogger(loggerName);
     // Based on https://github.com/quarkusio/quarkus/commit/57fb0cc57bf435bbdb86ca0614bf03dc04bea383
     private static final java.util.logging.Logger rootLogger = LogManager.getLogManager().getLogger(loggerName);
     private static final InMemoryLogHandler inMemoryLogHandler = new InMemoryLogHandler(
             record -> true);
-    // Start unit test with your extension loaded
 
     static {
         // By adding this handler, whenever a message is logged using the "test-logger",
@@ -33,11 +32,13 @@ public class SessionIdFilterTest {
         rootLogger.addHandler(inMemoryLogHandler);
     }
 
+    // Start unit test with your extension loaded
     @RegisterExtension
     static final QuarkusUnitTest unitTest = new QuarkusUnitTest()
             .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
                     .addClasses(ipAddressFilter.class))
-            .overrideConfigKey("quarkus.log.console.filter", "session-id-filter");
+            .overrideConfigKey("quarkus.log.console.filter", "ip-address-filter"); // Add the ip address filter.
+
 
     @AfterEach
     public void clearInMemoryLogRecords() {

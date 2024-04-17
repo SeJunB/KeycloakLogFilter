@@ -14,7 +14,8 @@ class LogFilterExtensionProcessor {
     }
 
     @BuildStep
-    AdditionalBeanBuildItem additionalBeans() { 
+    AdditionalBeanBuildItem additionalBeans() {
+        // https://quarkus.io/guides/cdi-integration#additional_bean_build_item
         return AdditionalBeanBuildItem.builder().addBeanClass(ipAddressFilter.class).build();
     }
 }

@@ -25,6 +25,7 @@ public class ipAddressFilter implements Filter {
     masks = Collections.unmodifiableList(temp);
   }
 
+  @SuppressWarnings("deprecation")
   @Override
   public boolean isLoggable(LogRecord record) {
     /*
