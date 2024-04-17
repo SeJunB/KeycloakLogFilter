@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: postgres:15.3
+    environment:
+    - POSTGRES_PASSWORD=changethis
+    volumes:
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+    - 5432:5432
+
+  keycloak:
+    build:
+      context: .
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=changethis
+      - KC_DB=postgres
+      - KC_DB_URL_HOST=host.docker.internal
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=changethis
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+ 
+ 
