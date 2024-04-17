@@ -4,9 +4,6 @@ Should be easy to build upon to integrate new filters.
 
 Readers should be familiar with Java and Dependency Injection in Java frameworks.
 
-### Without Extension
-![Picture of a log without Ip Address Masking](./images/IpAddressNotMasked.png)
-
 ### With Extension
 ![Picture of a log without Ip Address Masking](./images/IpAddressMasked.png)
 
