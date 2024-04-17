@@ -10,10 +10,14 @@ Readers should be familiar with Java and Dependency Injection in Java frameworks
 ### With Extension
 ![Picture of a log without Ip Address Masking](./images/IpAddressMasked.png)
 
+## Running the Extension
+A `docker-compose.yml` file has been provided. To run Keycloak with the extension, run the
+command `docker compose up -d`.
+
 ## Issues/Contributions
 Please create an issue if you have any questions. Contributions are welcome. Most of the code
 was put together using tutorials/documentation on the Quarkus website, stackoverflow, and 
-reading Quarkus source code/test.
+reading Quarkus source code/tests.
 
 ## References:
 1. https://quarkus.io/guides/building-my-first-extension#description-of-a-quarkus-extension
